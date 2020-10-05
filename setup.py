@@ -17,10 +17,15 @@ from __future__ import absolute_import, division, print_function
 
 from setuptools import setup, find_packages
 from glob import glob
-
+import sys
 
 PACKAGE = "usdmanager"
-execfile("{}/version.py".format(PACKAGE))
+
+try:
+    exec(open("{}/version.py".format(PACKAGE)).read())
+except:
+    execfile("{}/version.py".format(PACKAGE))
+    
 VERSION = __version__
 
 
